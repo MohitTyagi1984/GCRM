@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   AsyncStorage
 } from 'react-native';
+import { createAppContainer } from 'react-navigation';
 class LoginView extends Component {
 
   constructor(props) {
@@ -17,27 +18,27 @@ class LoginView extends Component {
       password: '',
     };
   }
-
    render() {
-   const onPress = () => {
-    AsyncStorage.getAllKeys((err, keys) => {
-      AsyncStorage.multiGet(keys, (err, stores) => {
-        stores.map((result, i, store) => {
-          // get at each store's key/value so you can work with it
-          let key = store[i][0];
-          let value = store[i][1];
-          if(key === 'userId' && this.state.userId === value){
-            this.props.navigation.navigate('Dashboard');
-          }
-        });
-      });
-    });   
-  };
+  //  const onPress = () => {
+  //   AsyncStorage.getAllKeys((err, keys) => {
+  //     AsyncStorage.multiGet(keys, (err, stores) => {
+  //       stores.map((result, i, store) => {
+  //         // get at each store's key/value so you can work with it
+  //         let key = store[i][0];
+  //         let value = store[i][1];
+  //         if(key === 'userId' && this.state.userId === value){
+  //           this.props.navigation.navigate('Dashboard');
+  //         }
+  //       });
+  //     });
+  //   });   
+  // };
     
     return (
       <KeyboardAvoidingView behavior='padding' style={styles.keyboardContainer}>
       <View style={styles.formContainer}>
-      <Text style={styles.header}> Greenlam Dynamic CRM </Text>
+      <Text style={styles.header}>Welcome to Greenlam Industries CRM </Text>
+      <Text style={{left:20, marginBottom:20}}>User your company ID to sign in </Text>
       <View >
         <TextInput style={styles.textInput}
         onChangeText={(value) => this.setState({userId: value})}
@@ -50,8 +51,8 @@ class LoginView extends Component {
           placeholder="Password" />
       </View>
       <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]}
-      onPress={onPress}>
-      {/* onPress={() => this.props.navigation.navigate('Dashboard')}> */}
+      // onPress={onPress}>
+      onPress={() => this.props.navigation.navigate('Home')}>
           <Text style={styles.loginText}>Login</Text>
         </TouchableHighlight>
     </View>
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
     bottom:0,
     marginBottom:20,
     left:20,
-    fontSize:22,
+    fontSize:18,
     color: '#fff',
     fontWeight: 'bold',
   },

@@ -1,14 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text,Dimensions, Image,ImageBackground, View, KeyboardAvoidingView } from 'react-native';
-
-class Dashboard extends React.Component {
+import CustomHeader, {} from '../Navigation/CustomHeader/CustomHeader';
+import CustomTabNavigator, {} from '../Navigation/CustomTab/CustomTabNavigator';
+class Home extends React.Component {
   constructor(){
     super();
   }
+  static router = CustomTabNavigator.router;
   render() {
     return (
      <View style={styles.container}>
-        <Text>Dashboard page</Text>
+         <CustomHeader navigation={this.props.navigation} />
+          <CustomTabNavigator navigation={this.props.navigation} />
      </View>
     );
   }
@@ -30,4 +33,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Dashboard
+export default Home

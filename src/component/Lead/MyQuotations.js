@@ -1,14 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text,Dimensions, Image,ImageBackground, View, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text,View } from 'react-native';
 
-class Dashboard extends React.Component {
+class MyQuotations extends React.Component {
   constructor(){
     super();
   }
   render() {
     return (
      <View style={styles.container}>
-        <Text>Dashboard page</Text>
+         <Text style={styles.text}> My Quotations!!!</Text>
      </View>
     );
   }
@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    flexDirection: 'column',
     alignSelf: 'stretch',
     width: null,
     justifyContent: 'center',
@@ -30,4 +29,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Dashboard
+export default MyQuotations

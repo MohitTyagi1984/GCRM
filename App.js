@@ -4,37 +4,42 @@ import LoginView, {  } from './src/component/Login/LoginView';
 import Dashboard, {  } from './src/component/Dashboard/Dashboard';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import CreateLeads, {} from './src/component/Lead/CreateLeads';
+import MyLeads, {} from './src/component/Lead/MyLeads';
+import MainApp, {} from './src/component/MainApp';
+import {createAppContainer} from 'react-navigation';
+import {createDrawerNavigator} from 'react-navigation-drawer';
+// import {createStackNavigator} from 'react-navigation-stack';
 import {AsyncStorage} from 'react-native';
+import { registerRootComponent } from 'expo';
 class App extends React.Component {
   constructor(){
     super();
     AsyncStorage.setItem('userId', 'mohit@gmail.com');
     AsyncStorage.setItem('password', 'tyagi');
+    // this.toggleDrawer = this.toggleDrawer.bind(this);
   }
+  // toggleDrawer() {
+  //   //Props to open/close the drawer
+  //   this.props.navigationProps.toggleDrawer();
+  // };
   render() {
     return (
-      // <ImageBackground style={styles.ImgView} source={require('./assets/Image/GreenLamImg1.jpg')} 
-      // resizeMode= "stretch">
-          // <View style={styles.container}>
-           <NavigationContainer theme={MyTheme} >
-          <Stack.Navigator initialRouteName='Login'>
-            <Stack.Screen name="Login" component={LoginView} options={{ headerShown: false }}/>
-            <Stack.Screen name="Dashboard" component={Dashboard} />
-          </Stack.Navigator>
-          </NavigationContainer>
-        //  </View>
-        //  </ImageBackground>
+      <View style={styles.container}>
+        <MainApp />
+      </View>
     );
   }
 } 
-const MyTheme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    background: 'lightgrey'
-  },
-};
-const Stack = createStackNavigator();
+// const MyTheme = {
+//   ...DefaultTheme,
+//   colors: {
+//     ...DefaultTheme.colors,
+//     background: 'lightgrey'
+//   },
+// };
+// const Stack = createStackNavigator();
+
 const styles = StyleSheet.create({
   ImgView:{
     flex: 1,
@@ -53,3 +58,4 @@ const styles = StyleSheet.create({
 });
 
 export default App
+registerRootComponent(App);

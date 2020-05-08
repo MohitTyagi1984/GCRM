@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text,Dimensions, Image,ImageBackground, View, KeyboardAvoidingView } from 'react-native';
 
-class Dashboard extends React.Component {
+class Report extends React.Component {
   constructor(){
     super();
   }
@@ -30,4 +30,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Dashboard
+export default Report
